@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 APPNAME := more-shell-utils
-SCRIPTS := ff fixperms
+SCRIPTS := ff fixperms canonical-name
 builddir:
 	mkdir -p builddir
 

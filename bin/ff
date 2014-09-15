@@ -3,4 +3,4 @@
 # fast find: search by file name substring from current directory
 # GNU find required
 
-find . -name \*$1\* | grep -v '.svn/' | grep -v '.git/'
+find . -name "*$1*" -not -wholename '*.git/*' -not -wholename '*.svn/*' -not -wholename '*.hg/*'
