@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# fast find: search by file name substring from current directory
+# GNU find required
+
+find . -name \*$1\* | grep -v '.svn/' | grep -v '.git/'

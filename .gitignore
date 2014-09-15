@@ -1,0 +1,6 @@
+build-stamp
+builddir/
+debian/files
+debian/*.log
+debian/*.substvars
+debian/more-shell-utils/
