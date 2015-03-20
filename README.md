@@ -16,7 +16,6 @@ ff
 
 Find file/directory by part of file name, starting from current directory.
 
-
 ~~~~~
 % ff .cpp
 ./eclibrus/src/preferencesdialog.cpp
@@ -27,10 +26,10 @@ Find file/directory by part of file name, starting from current directory.
 canonical-name
 --------------
 
-Print canonical file name (resolve all symlinksm eliminate `.` and `..`).
+Print canonical file name (resolve all symlinks, eliminate `.` and `..`).
 
 ~~~~~
-% canonical-name /etc/apache2/sites-enabled/000-default.conf 
+% canonical-name 000-default.conf 
 /etc/apache2/sites-enabled/000-default.conf
 ~~~~~
 
