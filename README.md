@@ -3,8 +3,8 @@ How to use
 
 Download binary package and install (or alternatively: build from sources and install):
 
-    wget 'https://github.com/sigsergv/shell-utils/raw/binary-release/more-shell-utils_1.2-1_all.deb'
-    sudo dpkg -i more-shell-utils_1.2-1_all.deb
+    wget 'https://github.com/sigsergv/shell-utils/releases/download/1.3/more-shell-utils_1.3-1_all.deb'
+    sudo dpkg -i more-shell-utils_1.3-1_all.deb
 
 What's inside
 =============
@@ -22,6 +22,9 @@ Find file/directory by part of file name, starting from current directory.
 ./eclibrus/src/moc_exportbooksprogress.cpp
 ...
 ~~~~~
+
+Also you can use flag `-i` to ignore case.
+
 
 canonical-name
 --------------
