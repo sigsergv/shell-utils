@@ -3,4 +3,43 @@
 # fast find: search by file name substring from current directory
 # GNU find required
 
-find . -name "*$1*" -not -wholename '*.git/*' -not -wholename '*.svn/*' -not -wholename '*.hg/*'
+show_help() {
+    echo 'Usage: ff [OPTIONS]
+
+OPTIONS:
+  -i, --ignore-case     ignore case
+  -h, --help            show this help
+'
+    exit 0
+}
+
+IGNORE_CASE=no
+
+# A POSIX variable
+OPTIND=1         # Reset in case getopts has been used previously in the shell.
+
+for i in "$@"
+do
+    case $i in
+        -h|--help)
+        show_help
+        shift # past argument=value
+        ;;
+
+        -i|--ignore-case)
+        IGNORE_CASE=yes
+        shift # past argument=value
+        ;;
+
+        *)
+                # unknown option
+        ;;
+    esac
+done
+
+if [ IGNORE_CASE=yes ]; then
+    find . -iname "*$1*" -not -wholename '*.git/*' -not -wholename '*.svn/*' -not -wholename '*.hg/*'
+else
+    find . -name "*$1*" -not -wholename '*.git/*' -not -wholename '*.svn/*' -not -wholename '*.hg/*'
+fi
+
