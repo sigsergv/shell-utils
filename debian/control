@@ -9,6 +9,6 @@ Vcs-Browser: https://github.com/sigsergv/shell-utils
 
 Package: more-shell-utils
 Architecture: all
-Depends: python2.7 | python2.6, findutils, bash, ${shlibs:Depends}, ${misc:Depends}
+Depends: python2.7 | python2.6, findutils, bash, perl, ${shlibs:Depends}, ${misc:Depends}
 Description: A few additional shell utilities for more convenient shell experience
  Contains a few scripts that improve shell/console experience.

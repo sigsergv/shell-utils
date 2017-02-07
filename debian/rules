@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 APPNAME := more-shell-utils
-SCRIPTS := ff fixperms canonical-name
+SCRIPTS := ff fixperms canonical-name uncolor
 builddir:
 	mkdir -p builddir
 
@@ -33,6 +33,7 @@ install: build
 
 	for x in $(SCRIPTS); do \
 		cp $(CURDIR)/bin/$$x $(CURDIR)/debian/$(APPNAME)/usr/bin; \
+		chmod 0755 $(CURDIR)/debian/$(APPNAME)/usr/bin/$x; \
 	done
 
 	# Add here commands to install the package into debian/your_appname
