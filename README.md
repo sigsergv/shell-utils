@@ -3,8 +3,8 @@ How to use
 
 Download binary package and install (or alternatively: build from sources and install):
 
-    wget 'https://github.com/sigsergv/shell-utils/releases/download/1.3/more-shell-utils_1.3-1_all.deb'
-    sudo dpkg -i more-shell-utils_1.3-1_all.deb
+    wget 'https://github.com/sigsergv/shell-utils/releases/download/1.4/more-shell-utils_1.4-1_all.deb'
+    sudo dpkg -i more-shell-utils_1.4-1_all.deb
 
 What's inside
 =============
@@ -47,3 +47,16 @@ to 0644 and all directories to 0755.
 % fixeprms
 %
 ~~~~~
+
+
+uncolor
+-------
+
+Remove shell escape special characters from stdin and put to stdout
+
+~~~~~~
+% uncolor < log.txt > clear.txt
+~~~~~~
+
+
+
