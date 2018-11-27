@@ -3,8 +3,8 @@ How to use
 
 Download binary package and install (or alternatively: build from sources and install):
 
-    wget 'https://github.com/sigsergv/shell-utils/releases/download/1.4/more-shell-utils_1.4-1_all.deb'
-    sudo dpkg -i more-shell-utils_1.4-1_all.deb
+    wget 'https://github.com/sigsergv/shell-utils/releases/download/1.5/more-shell-utils_1.5-1_all.deb'
+    sudo dpkg -i more-shell-utils_1.5-1_all.deb
 
 What's inside
 =============

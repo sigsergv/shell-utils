@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 APPNAME := more-shell-utils
 SCRIPTS := ff fixperms canonical-name uncolor
+GREP_ALIASES := gper grpe
 builddir:
 	mkdir -p builddir
 
@@ -36,7 +37,13 @@ install: build
 		chmod 0755 $(CURDIR)/debian/$(APPNAME)/usr/bin/$x; \
 	done
 
-	# Add here commands to install the package into debian/your_appname
+# install aliases to grep
+	cd $(CURDIR)/debian/$(APPNAME)/bin; \
+	for x in $(GREP_ALIASES); do \
+		ln -s grep $$x; \
+	done
+
+# Add here commands to install the package into debian/your_appname
 	cd builddir && $(MAKE) INSTALL_ROOT=$(CURDIR)/debian/$(APPNAME) install
 
 # Build architecture-independent files here.
