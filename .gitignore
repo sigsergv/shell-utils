@@ -1,5 +1,6 @@
 build-stamp
 builddir/
+debian/.debhelper
 debian/files
 debian/*.log
 debian/*.substvars

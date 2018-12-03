@@ -1,3 +1,9 @@
+more-shell-utils (1.5-2) unstable; urgency=medium
+
+  * one more alias for grep
+
+ -- Sergey Stolyarov <sergei@regolit.com>  Mon, 03 Dec 2018 14:59:05 +0700
+
 more-shell-utils (1.5-1) unstable; urgency=medium
 
   * added aliases to grep

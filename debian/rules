@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 APPNAME := more-shell-utils
 SCRIPTS := ff fixperms canonical-name uncolor
-GREP_ALIASES := gper grpe
+GREP_ALIASES := gper grpe gerp
 builddir:
 	mkdir -p builddir
 
