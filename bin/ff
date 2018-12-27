@@ -7,13 +7,13 @@ show_help() {
     echo 'Usage: ff [OPTIONS]
 
 OPTIONS:
-  -i, --ignore-case     ignore case
+  -n, --noic            do not ignore case
   -h, --help            show this help
 '
     exit 0
 }
 
-IGNORE_CASE=no
+IGNORE_CASE=yes
 
 # A POSIX variable
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
@@ -26,8 +26,8 @@ do
         shift # past argument=value
         ;;
 
-        -i|--ignore-case)
-        IGNORE_CASE=yes
+        -n|--noic)
+        IGNORE_CASE=no
         shift # past argument=value
         ;;
 
@@ -37,7 +37,7 @@ do
     esac
 done
 
-if [ IGNORE_CASE=yes ]; then
+if [ "$IGNORE_CASE" = "yes" ]; then
     find . -iname "*$1*" -not -wholename '*.git/*' -not -wholename '*.svn/*' -not -wholename '*.hg/*'
 else
     find . -name "*$1*" -not -wholename '*.git/*' -not -wholename '*.svn/*' -not -wholename '*.hg/*'
