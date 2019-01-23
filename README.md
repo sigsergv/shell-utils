@@ -3,8 +3,8 @@ How to use
 
 Download binary package and install (or alternatively: build from sources and install):
 
-    wget 'https://github.com/sigsergv/shell-utils/releases/download/1.6/more-shell-utils_1.6-1_all.deb'
-    sudo dpkg -i more-shell-utils_1.6-1_all.deb
+    wget 'https://github.com/sigsergv/shell-utils/releases/download/1.7/more-shell-utils_1.7-1_all.deb'
+    sudo dpkg -i more-shell-utils_1.7-1_all.deb
 
 What's inside
 =============
@@ -23,7 +23,8 @@ Find file/directory by part of file name, starting from current directory.
 ...
 ~~~~~
 
-Also you can use flag `-i` to ignore case.
+Also you can use flag `-n` to NOT ignore case (it's ignored by default) and flag `-a` 
+to print absolute paths.
 
 
 canonical-name

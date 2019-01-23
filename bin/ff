@@ -1,45 +1,40 @@
-#!/bin/bash
+#!/usr/bin/env python2
 
 # fast find: search by file name substring from current directory
-# GNU find required
+# python2 >= 2.7 required
 
-show_help() {
-    echo 'Usage: ff [OPTIONS]
+import argparse
+import os.path
 
-OPTIONS:
-  -n, --noic            do not ignore case
-  -h, --help            show this help
-'
-    exit 0
-}
+parser = argparse.ArgumentParser(description='Fast find.')
+parser.add_argument('-a', dest='abspath', action='store_true', default=False, help='Print absolute paths, not relative.')
+parser.add_argument('-n', dest='noic', action='store_true', default=False, help='Do not ignore case (ignored by default).')
+parser.add_argument('term', metavar='TERM', help='Search term.')
+args = parser.parse_args()
 
-IGNORE_CASE=yes
+search_term = args.term.decode('utf-8')
+show_abspath = args.abspath
+noic = args.noic
 
-# A POSIX variable
-OPTIND=1         # Reset in case getopts has been used previously in the shell.
+if noic == False:
+    search_term = search_term.lower()
 
-for i in "$@"
-do
-    case $i in
-        -h|--help)
-        show_help
-        shift # past argument=value
-        ;;
+def visit(arg, dirname, names):
+    if dirname.endswith('.git') or dirname.endswith('.hg') or dirname.endswith('.svn'):
+        return
+    for fn in names:
+        s = fn
+        if noic == False:
+            s = fn.lower()
+        if s.find(search_term) == -1:
+            continue
+        full_name = os.path.join(dirname, fn)
+        print(full_name)
 
-        -n|--noic)
-        IGNORE_CASE=no
-        shift # past argument=value
-        ;;
+if show_abspath == True:
+    start = os.getcwd()
+else:
+    start = '.'
 
-        *)
-                # unknown option
-        ;;
-    esac
-done
-
-if [ "$IGNORE_CASE" = "yes" ]; then
-    find . -iname "*$1*" -not -wholename '*.git/*' -not -wholename '*.svn/*' -not -wholename '*.hg/*'
-else
-    find . -name "*$1*" -not -wholename '*.git/*' -not -wholename '*.svn/*' -not -wholename '*.hg/*'
-fi
-
+start = start.decode('utf-8')
+os.path.walk(start, visit, False)

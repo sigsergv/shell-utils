@@ -1,3 +1,9 @@
+more-shell-utils (1.7-1) unstable; urgency=medium
+
+  * ff rewritten using python2
+
+ -- Sergey Stolyarov <sergei@regolit.com>  Wed, 23 Jan 2019 14:58:26 +0700
+
 more-shell-utils (1.6-1) unstable; urgency=medium
 
   * fixed bug in ff
