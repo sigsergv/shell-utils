@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 # fast find: search by file name substring from current directory
 # python2 >= 2.7 required
@@ -12,29 +12,36 @@ parser.add_argument('-n', dest='noic', action='store_true', default=False, help=
 parser.add_argument('term', metavar='TERM', help='Search term.')
 args = parser.parse_args()
 
-search_term = args.term.decode('utf-8')
+try:
+    search_term = args.term.decode('utf-8')
+except AttributeError:
+    search_term = args.term
+
 show_abspath = args.abspath
 noic = args.noic
 
 if noic == False:
     search_term = search_term.lower()
 
-def visit(arg, dirname, names):
-    if dirname.endswith('.git') or dirname.endswith('.hg') or dirname.endswith('.svn'):
-        return
-    for fn in names:
-        s = fn
-        if noic == False:
-            s = fn.lower()
-        if s.find(search_term) == -1:
-            continue
-        full_name = os.path.join(dirname, fn)
-        print(full_name)
-
 if show_abspath == True:
     start = os.getcwd()
 else:
     start = '.'
 
-start = start.decode('utf-8')
-os.path.walk(start, visit, False)
+try:
+    start = start.decode('utf-8')
+except:
+    pass
+
+for dirpath, dirnames, filenames in os.walk(start, topdown=True):
+    if dirpath.endswith('.git') or dirpath.endswith('.hg') or dirpath.endswith('.svn'):
+        continue
+    for fn in dirnames+filenames:
+        s = fn
+        if noic == False:
+            s = fn.lower()
+        if s.find(search_term) == -1:
+            continue
+        full_name = os.path.join(dirpath, fn)
+        print(full_name)
+    

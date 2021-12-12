@@ -1,3 +1,9 @@
+more-shell-utils (1.8-1) unstable; urgency=medium
+
+  * python3 is the only option now
+
+ -- Sergey Stolyarov <sergei@regolit.com>  Sun, 12 Dec 2021 20:55:54 +0700
+
 more-shell-utils (1.7-1) unstable; urgency=medium
 
   * ff rewritten using python2
